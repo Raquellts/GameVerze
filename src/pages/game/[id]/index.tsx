@@ -62,6 +62,10 @@ export const getStaticProps = async ({
 };
 
 export default function index({ jsondata }: { jsondata: GameResponse }) {
+  if (!jsondata || !jsondata.info) {
+    // Handle the case where jsondata or jsondata.info is undefined
+    return <div>Error: Data is missing</div>;
+  }
   return (
     <div>
       <Navbar />
