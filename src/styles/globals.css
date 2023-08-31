@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Aclonica&family=Bebas+Neue&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+/*
+font-family: 'Aclonica', sans-serif;
+font-family: 'Bebas Neue', sans-serif;
+font-family: 'Inter', sans-serif (100 a 800);
+*/
+
+:root {
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+}
+
+* {
+  color: aliceblue;
+  background-color: 141414;
+}
+
+.center {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.start {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.end {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+/* ---------------------------- animations global --------------------------- */
+
+.focus-in {
+  -webkit-animation: text-focus-in 0.8s ease-in-out alternate both;
+  animation: text-focus-in 0.8s ease-in-out alternate both;
+}
+
+.delay-focus-in {
+  -webkit-animation: text-focus-in 0.8s 0.5s ease-in-out alternate both;
+  animation: text-focus-in 0.8s 0.5s ease-in-out alternate both;
+}
+
+/*
+ * ----------------------------------------
+ * animation text-focus-in
+ * ----------------------------------------
+ */
+
+@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}

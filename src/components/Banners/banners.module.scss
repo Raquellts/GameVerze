@@ -1,0 +1,113 @@
+@import "../../styles/variables";
+
+//Divs
+
+.divHeader {
+  position: relative;
+  margin-top: -80px;
+  min-height: 70vh;
+  max-height: 90vh;
+  height: 50vw;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.divBanner {
+  position: absolute;
+  top: 0;
+  margin-top: -80px;
+  min-height: 60%;
+  height: 38vw;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: -9;
+}
+
+//images
+
+.backgroundImage {
+  position: absolute;
+  opacity: 45%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(1.1);
+  background-image: $img-skyrim;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -10;
+}
+
+.backgroundBanner {
+  position: absolute;
+  opacity: 45%;
+  top: 102px;
+  left: 0;
+  width: 100%;
+  height: 90%;
+  transform: scale(1.1);
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -10;
+  object-fit: cover;
+}
+
+.gradient {
+  position: absolute;
+  margin-top: calc(4vh + 10px);
+  bottom: -10%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: $img-gradient;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -9;
+}
+
+.gradientBanner {
+  left: 0;
+  width: 100%;
+  height: auto;
+  background-image: $img-gradienttwo;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-bottom: 3px solid #0b0b0b;
+}
+
+//icones
+
+.logoBG {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconSeta {
+  position: absolute;
+  bottom: 0;
+}
+
+.bgLogo {
+  width: 100vw;
+  margin-right: 50px;
+}
+
+//texts
+
+.smallHDTXT {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 30px;
+  font-size: $md-font;
+  font-family: $font-bebas;
+  font-weight: 400;
+  letter-spacing: 2.8px;
+}

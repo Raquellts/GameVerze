@@ -1,0 +1,39 @@
+@import "../../styles/variables";
+
+//footer
+
+.footertext {
+  width: 80%;
+  opacity: 30%;
+  padding: 10px;
+  font-weight: 400;
+  letter-spacing: 1.05px;
+  word-wrap: break-word;
+  font-size: $sm-font;
+}
+
+//navbar
+
+.backNav {
+  padding: 10px;
+  background-color: transparent;
+  box-shadow: 0px 0px 1px #1e1e1ea1;
+  position: fixed;
+  width: 100vw;
+}
+
+.navbarStyle {
+  position: relative;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 1;
+}
+
+//txt
+
+.linkTXT {
+  margin: 0px 0.5vw;
+  letter-spacing: 2.8px;
+  font-size: $md-font;
+  font-family: $font-bebas;
+}
