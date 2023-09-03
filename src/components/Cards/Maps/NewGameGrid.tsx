@@ -1,14 +1,15 @@
 //Interfaces
 import { APIResponse } from "../../../components/Interfaces/GameList";
 import Link from "next/link";
-import Games from "../Games";
+import Games from "../GridGame/Games";
 
 const NewGameGrid = ({ jsondata }: { jsondata: APIResponse }) => {
   return (
-    <div className="flex align-center justify-center my-10 mx-0 md:mx-10 lg:mx-20">
+    <div className="flex align-center justify-center my-5 mx-0 2xl:mx-10">
+      {/* TAMANHO DA TELA  -  EXTRA LARGE */}
       <div className="hidden 2xl:block ">
         <div className="pt-20 grid grid-cols-7">
-          {jsondata.results.items.slice(0, 21).map((data, index) => {
+          {jsondata.results.items.slice(0, 14).map((data, index) => {
             return (
               <Link key={index} href={`/game/${data.game_info.id}`}>
                 <Games data={data} />
@@ -18,9 +19,10 @@ const NewGameGrid = ({ jsondata }: { jsondata: APIResponse }) => {
         </div>
       </div>
 
-      <div className="2xl:hidden hidden md:block  ">
-        <div className="pt-20 grid grid-cols-4 xl:grid-cols-5">
-          {jsondata.results.items.slice(0, 20).map((data, index) => {
+      {/* TAMANHO DA TELA  -  LARGE */}
+      <div className="2xl:hidden hidden lg:block  ">
+        <div className="pt-20 grid grid-cols-5">
+          {jsondata.results.items.slice(0, 10).map((data, index) => {
             return (
               <Link key={index} href={`/game/${data.game_info.id}`}>
                 <Games data={data} />
@@ -30,9 +32,23 @@ const NewGameGrid = ({ jsondata }: { jsondata: APIResponse }) => {
         </div>
       </div>
 
+      {/* TAMANHO DA TELA  -  MEDIUM */}
+      <div className="lg:hidden hidden md:block  ">
+        <div className="pt-20 grid grid-cols-4">
+          {jsondata.results.items.slice(0, 8).map((data, index) => {
+            return (
+              <Link key={index} href={`/game/${data.game_info.id}`}>
+                <Games data={data} />
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* TAMANHO DA TELA  -  SMALL */}
       <div className="md:hidden hidden sm:block  ">
         <div className="pt-20 grid grid-cols-3">
-          {jsondata.results.items.slice(0, 21).map((data, index) => {
+          {jsondata.results.items.slice(0, 9).map((data, index) => {
             return (
               <Link key={index} href={`/game/${data.game_info.id}`}>
                 <Games data={data} />
@@ -42,9 +58,10 @@ const NewGameGrid = ({ jsondata }: { jsondata: APIResponse }) => {
         </div>
       </div>
 
+      {/* TAMANHO DA TELA  -  EXTRA SMALL */}
       <div className="sm:hidden block  ">
         <div className="pt-20 grid grid-cols-2">
-          {jsondata.results.items.slice(0, 20).map((data, index) => {
+          {jsondata.results.items.slice(0, 8).map((data, index) => {
             return (
               <Link key={index} href={`/game/${data.game_info.id}`}>
                 <Games data={data} />

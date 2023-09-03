@@ -3,6 +3,7 @@ import React from "react";
 import cards from "../../../Cards/cards.module.scss";
 //Interfaces
 import { PriceListItem } from "../../../Interfaces/GamePrice";
+import Cupom from "@/components/Modals/cupom";
 
 const GamePrice = ({
   currency,
@@ -24,16 +25,19 @@ const GamePrice = ({
     <>
       {data ? (
         <>
-          <div className="grid grid-row-2">
+          <div className="grid grid-row-2 mr-5 md:mr-0">
             <p className={`${cards.pricevalue}`}>
               {currencySymbol}
 
               {data.price === 0 ? "Free" : data.price.toFixed(2)}
             </p>
-            <div className={`${cards.percentDiv}`}>
-              <p className={`${cards.percent}`}>
-                {data.discount > 0 && data.discount.toString() + "%"}
-              </p>
+            <div className={`${cards.percentDiv} flex flex-row`}>
+              {data.discount > 0 && (
+                <p className={`${cards.percent}`}>
+                  {data.discount.toString() + "%"}
+                </p>
+              )}
+              {/*{data.coupon.available > false && <Cupom data={data} />}*/}
             </div>
           </div>
         </>

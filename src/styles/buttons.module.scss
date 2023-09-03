@@ -64,3 +64,27 @@
   border: 1px solid;
   transition: 0.2s;
 }
+
+.cupom {
+  margin: -3px 0px 0px 2px;
+  width: 36px;
+  padding-top: 1px;
+  line-height: 11px;
+  text-align: center;
+  letter-spacing: 1px;
+  border-radius: 8px;
+  border: 1px solid;
+  opacity: 50%;
+  color: #fff;
+  font-family: $font-bebas;
+  font-size: $sm-font;
+  transition: 0.1s ease-in;
+}
+
+.cupom:hover {
+  transition: 0.1s ease-in;
+  opacity: 100%;
+  color: $color-primary;
+  font-family: $font-bebas;
+  font-size: $sm-font;
+}

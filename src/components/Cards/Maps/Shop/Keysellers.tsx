@@ -1,31 +1,51 @@
 import Prices from "../../GamePrices/Prices";
+import MoreButton from "./ButtonMore";
 //CSS
 import cards from "../../cards.module.scss";
 //Interfaces
 import { GameResponse } from "../../../Interfaces/GamePrice";
+import { useState } from "react";
 
 const Keysellers = ({ jsondata }: { jsondata: GameResponse }) => {
+  const [showMore, setShowMore] = useState(false);
+  const filteredKeysellers = jsondata.prices.list.filter(
+    (store) =>
+      store.store.type === "Key Seller" &&
+      store.price >= 0 &&
+      store.price < 1000
+  );
+
+  const handleShowMore = () => {
+    setShowMore(!showMore);
+  };
+
   return (
     <div>
-      <p className={cards.infoHeader}>Key sellers</p>
+      {filteredKeysellers.length > 0 && (
+        <p className={cards.infoHeader}>Key Sellers</p>
+      )}
       {jsondata ? (
-        jsondata.prices.list
-          .filter((store) => store.store.type === "Key Seller")
-          .map((store, index) => {
-            if (store.price >= 0 && store.price < 1000) {
-              return (
-                <Prices
-                  currency={jsondata.prices.currency}
-                  data={store}
-                  name={jsondata.info.name}
-                  key={index}
-                />
-              );
-            }
-          })
+        filteredKeysellers
+          .slice(0, showMore ? filteredKeysellers.length : 3)
+          .map((store, index) => (
+            <Prices
+              currency={jsondata.prices.currency}
+              data={store}
+              name={jsondata.info.name}
+              key={index}
+            />
+          ))
       ) : (
         <h1>...loading</h1>
       )}
+      <div>
+        {/* ... */}
+        {filteredKeysellers.length > 3 && (
+          <div className="flex justify-center mb-10">
+            <MoreButton onClick={handleShowMore} showMore={showMore} />
+          </div>
+        )}
+      </div>
     </div>
   );
 };

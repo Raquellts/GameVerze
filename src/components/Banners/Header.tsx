@@ -34,9 +34,7 @@ export default function Header() {
           </div>
         </div>
 
-        <p className={`${banners.smallHDTXT} delay-focus-in`}>
-          SEE THE FAVORITES
-        </p>
+        <p className={`${banners.smallHDTXT} delay-focus-in`}>NEW GAMES</p>
         <Image
           src={"/icons/seta.svg"}
           width={50}

@@ -27,6 +27,7 @@ const HistoryPrices = ({
               className={`${cards.pricesub} ${cards.textalign} grid grid-cols-2`}
             >
               <p>store:&nbsp;{data.store.name}</p>
+              <p>{data.store.type}</p>
             </div>
           </div>
 
@@ -34,17 +35,20 @@ const HistoryPrices = ({
           <div
             className={`${cards.pricehead} ${cards.textalign} md:col-span-4 col-span-5 grid grid-rows-2 lg:hidden`}
           >
-            <p className="ml-10 md:ml-0">
-              {name.length > 20
-                ? name.trim().substring(0, 20) + "..."
-                : name.trim()}
-              &nbsp;
-              {data.edition}
-            </p>
+            <div className="ml-5 md:ml-0 flex flex-row">
+              <span className="hidden sm:block">
+                {name.length > 20
+                  ? name.trim().substring(0, 20) + "..."
+                  : name.trim()}
+                &nbsp;
+              </span>
+              <span className="">{data.edition}</span>
+            </div>
             <div
               className={`${cards.pricesub} ${cards.textalign} grid grid-cols-2`}
             >
-              <p className="ml-10 md:ml-0">store:&nbsp;{data.store.name}</p>
+              <p className="ml-5 md:ml-0">store:&nbsp;{data.store.name}</p>
+              <p>{data.store.type}</p>
             </div>
           </div>
         </>

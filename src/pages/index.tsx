@@ -29,7 +29,7 @@ export default function index({ arr }: { arr: APIResponse }) {
         <Navbar />
         <Header />
 
-        <div className="flex align-center justify-center my-10 mx-0 md:mx-10 lg:mx-20">
+        <div className="flex align-center justify-center mx-0 md:mx-10">
           <NewGameGrid jsondata={arr} />
         </div>
         <Footer />
