@@ -22,7 +22,7 @@ const Official = ({ jsondata }: { jsondata: GameResponse }) => {
   return (
     <div>
       {filteredOfficial.length > 0 && (
-        <p className={cards.infoHeader}>Official Stores</p>
+        <p className={`${cards.infoImportant}`}>Official Stores</p>
       )}
       {jsondata ? (
         filteredOfficial

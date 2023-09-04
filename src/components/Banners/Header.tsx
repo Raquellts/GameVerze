@@ -15,7 +15,7 @@ export default function Header() {
           {/*texto header para telas BG - MD*/}
           <div className="hidden md:block focus-in">
             <Image
-              src={"/logo/gameverze.svg"}
+              src={"/logo/gameverze.svg" || ""}
               width={900}
               height={300}
               alt="gameverze"

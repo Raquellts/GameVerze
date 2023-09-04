@@ -22,7 +22,7 @@ const Keysellers = ({ jsondata }: { jsondata: GameResponse }) => {
   return (
     <div>
       {filteredKeysellers.length > 0 && (
-        <p className={cards.infoHeader}>Key Sellers</p>
+        <p className={`${cards.infoImportant}`}>Key Sellers</p>
       )}
       {jsondata ? (
         filteredKeysellers
@@ -38,14 +38,11 @@ const Keysellers = ({ jsondata }: { jsondata: GameResponse }) => {
       ) : (
         <h1>...loading</h1>
       )}
-      <div>
-        {/* ... */}
-        {filteredKeysellers.length > 3 && (
-          <div className="flex justify-center mb-10">
-            <MoreButton onClick={handleShowMore} showMore={showMore} />
-          </div>
-        )}
-      </div>
+      {filteredKeysellers.length > 3 && (
+        <div className="flex justify-center mb-10">
+          <MoreButton onClick={handleShowMore} showMore={showMore} />
+        </div>
+      )}
     </div>
   );
 };

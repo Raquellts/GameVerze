@@ -1,7 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { NEXARDA_API_URL, STEAM_API_URL } from "../components/urls";
-import { SteamGame } from "../components/Interfaces/SteamInfos";
 import { GameResponse } from "../components/Interfaces/GamePrice";
 import { APIResponse } from "../components/Interfaces/GameList";
 require("dotenv").config();
@@ -77,7 +76,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
     const steamgrid = await axios({
       method: "GET",
-      url: `https://www.steamgriddb.com/api/v2/games/steam/${appid}`,
+      url: `https://www.steamgriddb.com/api/v2/heroes/steam/${appid}`,
       headers: {
         Authorization: `Bearer ${TOKEN}`,
       },

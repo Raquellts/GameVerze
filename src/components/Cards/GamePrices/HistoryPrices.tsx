@@ -53,13 +53,13 @@ const HistoryPrices = ({ data }: { data: GameResponse }) => {
             lowest:&nbsp;
             <span style={{ color: "#ffffff" }}>
               {currencySymbol}
-              {data.prices.lowest}
+              {data.prices.lowest || ""}
             </span>
             <br />
           </p>
         </div>
       ) : (
-        <h1>...loading</h1>
+        <h1>loading</h1>
       )}
     </>
   );

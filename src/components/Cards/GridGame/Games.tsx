@@ -17,7 +17,7 @@ const Games = ({ data }: propsPrice) => {
         <div className={`${cards.cardContainer}`}>
           {/* ABSOLUTE - BACKGROUND IMAGE */}
           <img
-            src={data.image}
+            src={data.image || ""}
             alt=""
             className={`${cards.card} ${cards.borderCard}`}
           />
@@ -26,7 +26,7 @@ const Games = ({ data }: propsPrice) => {
           <h2 className={`${cards.cardTXT} ${cards.absoluteCard}`}>
             {data.game_info.name.length > 20
               ? data.game_info.name.substring(0, 20) + "..."
-              : data.game_info.name}
+              : data.game_info.name || ""}
           </h2>
         </div>
       ) : (

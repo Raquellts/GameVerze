@@ -9,12 +9,11 @@ export default function Footer() {
       <div className="flex items-center justify-center p-6 lg:justify-between bg-blacktwo">
         <div className="flex justify-center">
           <p className={navs.footertext}>
-            <u>Atenção:</u> Os jogos disponibilizados neste site não são
-            hospedados por nós. Os links são obtidos de fontes: The Pirate Bay,
-            1337x, OnlineFix. Qualquer denúncia deve ser encaminhada diretamente
-            aos responsáveis por hospedar os jogos torrent em seus servidores ou
-            solicitada a remoção do conteúdo diretamente ao provedor de pesquisa
-            (via DMCA).
+            <u>Atention:</u>&nbsp;Discover the best deals of your favorite games
+            with Gameverze! Compare prices, but remember to check the values on
+            official websites before making a purchase to ensure accuracy of
+            information. Save as you expand your collection of favorite games
+            with confidence!
           </p>
         </div>
       </div>

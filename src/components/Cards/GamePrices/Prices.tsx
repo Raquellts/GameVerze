@@ -31,7 +31,7 @@ const Prices = ({
             {/* icones da loja em telas maiores */}
             <div className="hidden md:block">
               <img
-                src={data.store.image}
+                src={data.store.image || ""}
                 width={35}
                 height={35}
                 alt="..."

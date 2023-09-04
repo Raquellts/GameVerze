@@ -11,7 +11,7 @@ const NewGameGrid = ({ jsondata }: { jsondata: APIResponse }) => {
         <div className="pt-20 grid grid-cols-7">
           {jsondata.results.items.slice(0, 14).map((data, index) => {
             return (
-              <Link key={index} href={`/game/${data.game_info.id}`}>
+              <Link key={index} href={`/game/${data.game_info.id || "404"}`}>
                 <Games data={data} />
               </Link>
             );
@@ -24,7 +24,7 @@ const NewGameGrid = ({ jsondata }: { jsondata: APIResponse }) => {
         <div className="pt-20 grid grid-cols-5">
           {jsondata.results.items.slice(0, 10).map((data, index) => {
             return (
-              <Link key={index} href={`/game/${data.game_info.id}`}>
+              <Link key={index} href={`/game/${data.game_info.id || "404"}`}>
                 <Games data={data} />
               </Link>
             );
@@ -37,7 +37,7 @@ const NewGameGrid = ({ jsondata }: { jsondata: APIResponse }) => {
         <div className="pt-20 grid grid-cols-4">
           {jsondata.results.items.slice(0, 8).map((data, index) => {
             return (
-              <Link key={index} href={`/game/${data.game_info.id}`}>
+              <Link key={index} href={`/game/${data.game_info.id || "404"}`}>
                 <Games data={data} />
               </Link>
             );
@@ -50,7 +50,7 @@ const NewGameGrid = ({ jsondata }: { jsondata: APIResponse }) => {
         <div className="pt-20 grid grid-cols-3">
           {jsondata.results.items.slice(0, 9).map((data, index) => {
             return (
-              <Link key={index} href={`/game/${data.game_info.id}`}>
+              <Link key={index} href={`/game/${data.game_info.id || "404"}`}>
                 <Games data={data} />
               </Link>
             );
@@ -63,7 +63,7 @@ const NewGameGrid = ({ jsondata }: { jsondata: APIResponse }) => {
         <div className="pt-20 grid grid-cols-2">
           {jsondata.results.items.slice(0, 8).map((data, index) => {
             return (
-              <Link key={index} href={`/game/${data.game_info.id}`}>
+              <Link key={index} href={`/game/${data.game_info.id || "404"}`}>
                 <Games data={data} />
               </Link>
             );

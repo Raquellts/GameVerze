@@ -22,7 +22,7 @@ const Marketplaces = ({ jsondata }: { jsondata: GameResponse }) => {
   return (
     <div>
       {filteredMarketplaces.length > 0 && (
-        <p className={cards.infoHeader}>Marketplaces</p>
+        <p className={`${cards.infoImportant}`}>Marketplaces</p>
       )}
       {jsondata ? (
         filteredMarketplaces

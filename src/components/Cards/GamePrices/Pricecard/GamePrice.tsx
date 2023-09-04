@@ -29,12 +29,12 @@ const GamePrice = ({
             <p className={`${cards.pricevalue}`}>
               {currencySymbol}
 
-              {data.price === 0 ? "Free" : data.price.toFixed(2)}
+              {data.price === 0 ? "Free" : data.price.toFixed(2) || ""}
             </p>
             <div className={`${cards.percentDiv} flex flex-row`}>
               {data.discount > 0 && (
                 <p className={`${cards.percent}`}>
-                  {data.discount.toString() + "%"}
+                  {data.discount.toString() + "%" || ""}
                 </p>
               )}
               {/*{data.coupon.available > false && <Cupom data={data} />}*/}
