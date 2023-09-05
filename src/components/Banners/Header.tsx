@@ -19,6 +19,7 @@ export default function Header() {
               width={900}
               height={300}
               alt="gameverze"
+              style={{ width: "900px", height: "300px" }}
             ></Image>
           </div>
         </div>
@@ -30,6 +31,7 @@ export default function Header() {
               width={220}
               height={100}
               alt="gameverze"
+              style={{ width: "220px", height: "100px" }}
             ></Image>
           </div>
         </div>
@@ -40,6 +42,7 @@ export default function Header() {
           width={50}
           height={50}
           alt="gameverze"
+          style={{ width: "50px", height: "50px" }}
           className={`${banners.iconSeta} delay-focus-in`}
         ></Image>
       </div>

@@ -4,8 +4,8 @@ import cards from "../../Cards/cards.module.scss";
 //Interfaces
 import { GameDetails } from "../../Interfaces/SteamInfos";
 import { GameResponse } from "../../Interfaces/GamePrice";
-import Requirements from "./infoAll/Requirements";
 import Metacritic from "./infoAll/Metacritic";
+import HistoryPrices from "./infoAll/HistoryPrices";
 
 interface InfosProps {
   infos: GameResponse;
@@ -25,9 +25,7 @@ const Infos = ({ data, appid, infos }: InfosProps) => {
         {/* Nome do jogo */}
         <p className={cards.infoHeader}>{(infos && infos.info.name) || ""}</p>
 
-        <p className={`${cards.infoImportant} divider`}>About the game</p>
-
-        {/* Lançamento do jogo */}
+        <HistoryPrices data={infos} />
 
         <p className={cards.infoImportant}>
           release:&nbsp;
@@ -79,7 +77,7 @@ const Infos = ({ data, appid, infos }: InfosProps) => {
           {data && data[appid].data.publishers ? (
             data[appid].data.publishers.map((publisher, index) => (
               <span key={index} className={cards.infoDescription}>
-                {publisher}
+                {publisher},&nbsp;
               </span>
             ))
           ) : (
@@ -107,8 +105,6 @@ const Infos = ({ data, appid, infos }: InfosProps) => {
             }
           ></span>
         </p>
-
-        <Requirements data={data} appid={appid} />
       </div>
     </>
   );

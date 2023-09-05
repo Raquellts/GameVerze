@@ -27,7 +27,13 @@ const Metacritic = ({ data, appid }: InfosProps) => {
     <>
       <p className={cards.infoImportant}>
         Metacritic:&nbsp;
-        <span style={{ backgroundColor }}>{metacriticScore || ""}</span>
+        <span
+          style={{
+            backgroundColor,
+          }}
+        >
+          {metacriticScore || ""}
+        </span>
         {data && data[appid].data.metacritic?.url ? (
           <Link
             href={data[appid].data.metacritic.url}

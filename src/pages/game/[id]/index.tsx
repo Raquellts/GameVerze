@@ -24,7 +24,6 @@ import {
   Marketplaces,
   Official,
   Keysellers,
-  HistoryPrices,
   Infos,
 } from "./imports";
 
@@ -79,9 +78,6 @@ export default function Index({
 
               <div className="flex-auto flex-col w-full">
                 <div className="grid grid-row">
-                  {/* Prices History */}
-                  {jsondata ? <HistoryPrices data={jsondata} /> : "loading"}
-
                   {/* Official Store */}
                   {jsondata ? <Official jsondata={jsondata} /> : "loading"}
 

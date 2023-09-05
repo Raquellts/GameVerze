@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";
 //CSS
 import cards from "../../../Cards/cards.module.scss";
 //Interfaces
@@ -74,4 +74,4 @@ const Requirements = ({ data, appid }: InfosProps) => {
   );
 };
 
-export default Requirements;
+export default Requirements;*/
