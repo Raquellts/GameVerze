@@ -5,6 +5,7 @@ const nextConfig = {};
   {
     images: {
       domains: ["www.nexarda.com"],
+      domains: ["w.wallhaven.cc"],
     },
   }),
   nextConfig;
