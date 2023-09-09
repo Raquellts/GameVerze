@@ -1,4 +1,4 @@
-export interface SteamHero {
+export interface SteamGrid {
   id: number;
   score: number;
   style: string;
@@ -22,7 +22,7 @@ export interface SteamHero {
   };
 }
 
-export interface HeroResponse {
+export interface GridResponse {
   success: boolean;
-  data: SteamHero[];
+  data: SteamGrid[];
 }

@@ -55,7 +55,16 @@
   margin: 20px;
   z-index: 1;
   text-align: center;
-  position: relative;
+}
+
+.cardImages {
+  padding: 0px;
+  margin: 0px;
+  display: block;
+  max-width: 500px;
+  max-height: 300px;
+  width: auto;
+  height: auto;
 }
 
 .bgpriceCard {
@@ -87,16 +96,13 @@
 }
 
 .absoluteCover {
-  opacity: 50%;
   position: absolute;
   min-width: 250px;
   min-height: 350px;
+  margin: 20px;
   width: 18vw;
   height: 24vw;
-  margin: 20px;
   text-align: center;
-  margin-top: 2px;
-  margin-left: 20px;
 }
 
 //texts
@@ -233,4 +239,15 @@
   transition: transform 0.3s ease-in-out;
   color: $color-primary !important;
   opacity: 1;
+}
+
+//img
+
+.logoAspect {
+  margin-bottom: 20px;
+  display: block;
+  max-width: 230px;
+  max-height: 200px;
+  width: auto;
+  height: auto;
 }

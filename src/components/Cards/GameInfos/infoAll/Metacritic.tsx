@@ -11,7 +11,7 @@ interface InfosProps {
 }
 const Metacritic = ({ data, appid }: InfosProps) => {
   //metacritic
-  const metacriticScore = data && data[appid].data.metacritic?.score;
+  const metacriticScore = data && data[appid]?.data?.metacritic?.score;
   let backgroundColor = "";
 
   if (metacriticScore >= 76 && metacriticScore <= 100) {
@@ -34,9 +34,9 @@ const Metacritic = ({ data, appid }: InfosProps) => {
         >
           {metacriticScore || ""}
         </span>
-        {data && data[appid].data.metacritic?.url ? (
+        {data && data[appid]?.data?.metacritic?.url ? (
           <Link
-            href={data[appid].data.metacritic.url}
+            href={data[appid]?.data?.metacritic.url}
             className={cards.infoDescription}
           >
             See More

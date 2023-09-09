@@ -8,13 +8,15 @@ type ButtonProps = {
 
 const MoreButton: React.FC<ButtonProps> = ({ onClick, showMore }) => {
   return (
-    <button
-      type="button"
-      className={`${button.primaryButton}`}
-      onClick={onClick}
-    >
-      {showMore ? "Show less -" : "Show more +"}
-    </button>
+    <div className="flex justify-center">
+      <button
+        type="button"
+        className={`${button.primaryButton}`}
+        onClick={onClick}
+      >
+        {showMore ? "Show less -" : "Show more +"}
+      </button>
+    </div>
   );
 };
 

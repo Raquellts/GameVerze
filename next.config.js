@@ -5,7 +5,7 @@ const nextConfig = {};
   {
     images: {
       domains: ["www.nexarda.com"],
-      domains: ["w.wallhaven.cc"],
+      domains: ["cdn2.steamgriddb.com"],
     },
   }),
   nextConfig;

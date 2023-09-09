@@ -7,7 +7,7 @@ import { GameResponse } from "../../../Interfaces/GamePrice";
 const HistoryPrices = ({ data }: { data: GameResponse }) => {
   let currencySymbol = "";
 
-  switch (data.prices.currency) {
+  switch (data && data.prices.currency) {
     case "GBP":
       currencySymbol = "£";
       break;

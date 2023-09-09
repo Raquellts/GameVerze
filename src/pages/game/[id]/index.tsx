@@ -13,7 +13,7 @@ import { useRouter } from "next/router";
 //interfaces
 import { GameResponse } from "../../../components/Interfaces/GamePrice";
 import { GameDetails } from "../../../components/Interfaces/SteamInfos";
-import { HeroResponse } from "../../../components/Interfaces/GridImgs";
+import { GridResponse } from "../../../components/Interfaces/SteamGRID";
 
 //Componentes
 import {
@@ -26,6 +26,7 @@ import {
   Keysellers,
   Infos,
 } from "./imports";
+import Images from "@/components/Cards/GameInfos/Images";
 
 //The getStaticPaths - getStaticProps are on apis.tsx
 export const getStaticPaths = customGetStaticPaths;
@@ -35,7 +36,8 @@ interface IndexProps {
   jsondata: GameResponse;
   appid: number;
   steamdata: GameDetails;
-  gridimgs: HeroResponse;
+  gridimgs: GridResponse;
+  gridlogos: GridResponse;
 }
 
 export default function Index({
@@ -43,6 +45,7 @@ export default function Index({
   appid,
   steamdata,
   gridimgs,
+  gridlogos,
 }: IndexProps) {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -57,6 +60,8 @@ export default function Index({
     }
   }, [jsondata]);
 
+  console.log(appid);
+
   return (
     <>
       {isLoading ? (
@@ -69,23 +74,45 @@ export default function Index({
             <Cover data={jsondata} />
           </div>
           <div className="bg-blackthree" style={{ zIndex: "10" }}>
-            <div className="py-16 flex flex-col md:flex-row px-5 xl:px-20 ">
-              <div className="flex-auto md:w-2/5 w-full">
-                <Infos infos={jsondata} data={steamdata} appid={appid} />
+            {steamdata ? (
+              <div className="p-5">
+                <Images data={steamdata} appid={appid} />
+              </div>
+            ) : (
+              ""
+            )}
+            <div className="py-10 flex flex-col md:flex-row px-5 xl:px-16 ">
+              <div className="flex-auto md:w-2/5 lg:w-1/3 w-full">
+                <Infos
+                  logo={gridlogos}
+                  infos={jsondata}
+                  data={steamdata}
+                  appid={appid}
+                />
               </div>
 
-              <div className="opacity-50 divider md:divider-horizontal md:px-5"></div>
+              <div className="divider md:divider-horizontal md:px-5"></div>
 
               <div className="flex-auto flex-col w-full">
                 <div className="grid grid-row">
-                  {/* Official Store */}
-                  {jsondata ? <Official jsondata={jsondata} /> : "loading"}
+                  <div className="mb-10">
+                    {/* Official Store */}
+                    {jsondata ? <Official jsondata={jsondata} /> : "loading"}
+                  </div>
 
-                  {/* Marketplace */}
-                  {jsondata ? <Marketplaces jsondata={jsondata} /> : "loading"}
+                  <div className="mb-10">
+                    {/* Marketplace */}
+                    {jsondata ? (
+                      <Marketplaces jsondata={jsondata} />
+                    ) : (
+                      "loading"
+                    )}
+                  </div>
 
-                  {/* Key Seller */}
-                  {jsondata ? <Keysellers jsondata={jsondata} /> : "loading"}
+                  <div className="mb-10">
+                    {/* Key Seller */}
+                    {jsondata ? <Keysellers jsondata={jsondata} /> : "loading"}
+                  </div>
                 </div>
               </div>
             </div>

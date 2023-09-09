@@ -4,11 +4,11 @@ import Image from "next/image";
 import banners from "../Banners/banners.module.scss";
 //Interfaces
 import { GameResponse } from "../Interfaces/GamePrice";
-import { HeroResponse } from "../Interfaces/GridImgs";
+import { GridResponse } from "../Interfaces/SteamGRID";
 
 type propsGame = {
   data: GameResponse;
-  hero: HeroResponse;
+  hero: GridResponse;
 };
 
 export default function Banner({ data, hero }: propsGame) {

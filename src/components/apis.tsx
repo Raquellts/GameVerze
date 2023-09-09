@@ -20,7 +20,7 @@ interface SteamParams {
   };
 }
 
-function cleanAndFormatString(input: string): string {
+function FormatedString(input: string): string {
   return input
     .replace(/[^\w\s]/g, "")
     .toLowerCase()
@@ -51,55 +51,105 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const { id } = params;
 
+  let jsondata: GameResponse | null = null;
+  let appid: number | null = null;
+  let gridimgs: any = null;
+  let gridlogos: any = null;
+
   try {
     const jsonDataResponse = await axios.get(
       `https://www.nexarda.com/api/v3/prices?type=game&id=${id}&currency=GBP`
     );
-    const steamResponse = await axios.get(STEAM_API_URL);
 
-    const jsondata: GameResponse = jsonDataResponse.data;
-    const steamgames: SteamParams = steamResponse.data;
+    jsondata = jsonDataResponse.data;
 
-    const cleanedAppName = cleanAndFormatString(jsondata?.info?.name);
+    let steamResponse;
+    let steamgames;
+    let steaminfo;
 
-    const matchedGame = steamgames.applist.apps.find((app) => {
-      const cleanedApp = cleanAndFormatString(app.name);
-      return cleanedApp === cleanedAppName;
-    });
+    //steam names-ids list and steamDATA api
+    try {
+      steamResponse = await axios.get(STEAM_API_URL);
+      steamgames = steamResponse.data;
 
-    const appid = matchedGame ? matchedGame.appid : null;
+      const cleanedAppName = FormatedString(jsondata?.info?.name ?? "");
 
-    const steaminfo = await axios.get(
-      `https://store.steampowered.com/api/appdetails?appids=${appid}&l=en`
-    );
-    const steamdata = steaminfo.data;
+      const matchedGame = steamgames.applist.apps.find((app: any) => {
+        const cleanedApp = FormatedString(app.name);
+        return cleanedApp === cleanedAppName;
+      });
 
-    const steamgrid = await axios({
-      method: "GET",
-      url: `https://www.steamgriddb.com/api/v2/heroes/steam/${appid}`,
-      headers: {
-        Authorization: `Bearer ${TOKEN}`,
-      },
-    });
+      appid = matchedGame ? matchedGame.appid : null;
 
-    const gridimgs = steamgrid.data;
+      try {
+        steaminfo = await axios.get(
+          `https://store.steampowered.com/api/appdetails?appids=${appid}&l=en`
+        );
+      } catch (error) {
+        console.error("An error occurred while fetching Steam info:");
+        steaminfo = null;
+      }
+    } catch (error) {
+      console.error("An error occurred while fetching Steam games:");
+      steamResponse = null;
+      steamgames = null;
+      steaminfo = null;
+    }
 
+    // steamGRID heroes - banner
+    try {
+      const steamgridhero = await axios({
+        method: "GET",
+        url: `https://www.steamgriddb.com/api/v2/heroes/steam/${
+          appid ? appid : ""
+        }`,
+        headers: {
+          Authorization: `Bearer ${TOKEN}`,
+        },
+      });
+
+      gridimgs = steamgridhero.data;
+    } catch (error) {
+      console.error("An error occurred while fetching grid images:");
+      gridimgs = null;
+    }
+
+    // steamGRID logos
+    try {
+      const steamgridlogo = await axios({
+        method: "GET",
+        url: `https://www.steamgriddb.com/api/v2/logos/steam/${
+          appid ? appid : ""
+        }`,
+        headers: {
+          Authorization: `Bearer ${TOKEN}`,
+        },
+      });
+
+      gridlogos = steamgridlogo.data;
+    } catch (error) {
+      console.error("An error occurred while fetching grid images:");
+      gridlogos = null;
+    }
+
+    //return all
     return {
       props: {
         jsondata,
         appid,
-        steamdata,
+        steamdata: steaminfo?.data || null,
         gridimgs,
+        gridlogos,
       },
     };
   } catch (error) {
-    console.error("An error occurred while fetching data:", error);
+    console.error("An error occurred while fetching JSON data:");
     return {
       props: {
         jsondata: null,
         appid: null,
         steamdata: null,
-        gridimgs: null,
+        gridimgs,
       },
     };
   }

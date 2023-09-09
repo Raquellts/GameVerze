@@ -19,11 +19,16 @@
     "postcss": "8.4.27",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-slick": "^0.29.0",
     "sass": "^1.64.1",
+    "slick-carousel": "^1.8.1",
     "tailwindcss": "3.3.3"
   },
   "devDependencies": {
-    "daisyui": "^3.6.3"
+    "@types/react-slick": "^0.23.10",
+    "@types/roman-numerals": "^0.3.0",
+    "daisyui": "^3.6.3",
+    "typescript": "5.2.2"
   },
   "CI": false
 }

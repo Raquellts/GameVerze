@@ -9,7 +9,7 @@ import { APIResponse } from "../components/Interfaces/GameList";
 import Navbar from "../components/Navs/Navbar";
 import Footer from "../components/Navs/Footer";
 import Header from "../components/Banners/Header";
-import NewGameGrid from "../components/Cards/Maps/NewGameGrid";
+import NewGameGrid from "../components/Cards/GridGame/Maps/NewGameGrid";
 
 // Versão correta
 

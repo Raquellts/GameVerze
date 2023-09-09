@@ -39,7 +39,7 @@ const Keysellers = ({ jsondata }: { jsondata: GameResponse }) => {
         <h1>...loading</h1>
       )}
       {filteredKeysellers.length > 3 && (
-        <div className="flex justify-center mb-10">
+        <div>
           <MoreButton onClick={handleShowMore} showMore={showMore} />
         </div>
       )}

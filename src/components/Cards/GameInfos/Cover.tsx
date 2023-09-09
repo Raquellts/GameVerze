@@ -13,7 +13,7 @@ const Cover = ({ data }: propsGame) => {
     <>
       <div className={`${banners.gradientBanner} mt-32`}>
         <div className="flex justify-center -mt-5 md:block md:mt-5">
-          <div className=" xl:ml-20 lg:ml-6 pb-10">
+          <div className=" xl:ml-75px pb-10">
             <div className={`${cards.absoluteCover}`} />
 
             <img
