@@ -31,7 +31,7 @@ export const getStaticPaths: GetStaticPaths<DynamicParams> = async () => {
     return { paths, fallback: true };
   } catch (error) {
     console.error("An error occurred while fetching paths:", error);
-    return { paths: [], fallback: true };
+    throw error;
   }
 };
 
@@ -50,7 +50,7 @@ export const getStaticProps = async ({ params }: any) => {
 };
 
 const Index = ({ arr }: { arr: APIResponse }) => {
-  const data = arr.results;
+  const data = arr?.results; // Add the null-check operator '?'
   return (
     <>
       <div className="pt-20 bg-black">
