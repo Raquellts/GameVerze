@@ -3,6 +3,7 @@ import "../../../styles/globals.css";
 import "../../../../public/fonts/fonts.css";
 import banners from "../../../components/Banners/banners.module.scss";
 //Modulos
+import React from "react";
 import { useEffect, useState } from "react";
 import {
   getStaticPaths as customGetStaticPaths,
