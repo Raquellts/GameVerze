@@ -1,15 +1,29 @@
+import React, { useState } from "react";
+import buttons from "../../../styles/buttons.module.scss";
 import cards from "../../Cards/cards.module.scss";
 import { GameDetails, Screenshot } from "../../Interfaces/SteamInfos";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-type propsGame = {
+type PropsGame = {
   data: GameDetails;
   appid: number;
 };
 
-const Images = ({ data, appid }: propsGame) => {
+const Images = ({ data, appid }: PropsGame) => {
+  const [selectedImage, setSelectedImage] = useState<Screenshot | null>(null);
+
+  const openModal = (image: Screenshot) => {
+    setSelectedImage(image);
+    const screenshotsModal = document.getElementById(
+      "screenshots"
+    ) as HTMLDialogElement;
+    if (screenshotsModal) {
+      screenshotsModal.showModal();
+    }
+  };
+
   return (
     <>
       <div>
@@ -18,15 +32,27 @@ const Images = ({ data, appid }: propsGame) => {
           infinite={true}
           responsive={[
             {
+              breakpoint: 1500,
+              settings: {
+                slidesToShow: 4,
+              },
+            },
+            {
               breakpoint: 1024,
               settings: {
                 slidesToShow: 3,
               },
             },
             {
-              breakpoint: 600,
+              breakpoint: 800,
               settings: {
                 slidesToShow: 2,
+              },
+            },
+            {
+              breakpoint: 500,
+              settings: {
+                slidesToShow: 1,
               },
             },
           ]}
@@ -35,17 +61,42 @@ const Images = ({ data, appid }: propsGame) => {
             data[appid]?.data?.screenshots?.map(
               (image: Screenshot, index: number) => {
                 return (
-                  <img
-                    key={index}
-                    src={image.path_thumbnail || ""}
-                    alt=""
-                    className={`${cards.cardImages} ${cards.borderCard}`}
-                  />
+                  <button
+                    onClick={() => openModal(image)}
+                    className={`${cards.cardImages}`}
+                  >
+                    <img
+                      key={index}
+                      src={image.path_thumbnail || ""}
+                      alt=""
+                      className={`${cards.borderCard}`}
+                    />
+                  </button>
                 );
               }
             )}
         </Slider>
       </div>
+
+      {/* Modal screenshots FULLSCREEN */}
+      <dialog id="screenshots" className="modal backdrop-blur-2xl">
+        {selectedImage && (
+          <div className="flex flex-col align-center justify-center md:w-3/4 2xl:w-2/3">
+            <img
+              key={selectedImage.id}
+              src={selectedImage.path_full || ""}
+              alt=""
+              className={`${cards.borderCard}`}
+            />
+            <form
+              method="dialog"
+              className="flex flex-col-start justify-center mt-5"
+            >
+              <button className={`${buttons.primaryButton}`}>Close</button>
+            </form>
+          </div>
+        )}
+      </dialog>
     </>
   );
 };

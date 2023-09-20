@@ -9,13 +9,14 @@ import { APIResponse } from "../components/Interfaces/GameList";
 import Navbar from "../components/Navs/Navbar";
 import Footer from "../components/Navs/Footer";
 import Header from "../components/Banners/Header";
-import NewGameGrid from "../components/Cards/GridGame/Maps/NewGameGrid";
+import GameGrid from "../components/Cards/GridGame/Maps/GameGrid";
+import GamesCompact from "@/components/Cards/GamesCompact/GamesCompact";
 
 // Versão correta
 
 export const getStaticProps = async () => {
   const response: AxiosResponse<APIResponse[]> = await axios.get(
-    "https://www.nexarda.com/api/v3/search?type=games"
+    "https://www.nexarda.com/api/v3/search?type=games&page=1"
   );
   const arr = response.data;
 
@@ -30,8 +31,9 @@ export default function index({ arr }: { arr: APIResponse }) {
         <Header />
 
         <div className="flex align-center justify-center mx-0 md:mx-10">
-          <NewGameGrid jsondata={arr} />
+          <GameGrid jsondata={arr} />
         </div>
+        <GamesCompact />
         <Footer />
       </div>
     </>

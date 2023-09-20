@@ -31,7 +31,11 @@ const Infos = ({ data, appid, infos, logo }: InfosProps) => {
         {logo && logo.data && logo.data.length > 0 ? (
           <div className="flex align-center justify-center mb-10">
             <Image
-              src={logo?.data[0]?.url || ""}
+              src={
+                logo?.data.find((item) => item.style === "white")?.url ||
+                logo?.data[0]?.url ||
+                ""
+              }
               alt="logo"
               width={300}
               height={300}

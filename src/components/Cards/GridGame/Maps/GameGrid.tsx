@@ -3,7 +3,7 @@ import { APIResponse } from "../../../Interfaces/GameList";
 import Link from "next/link";
 import Games from "../Games";
 
-const NewGameGrid = ({ jsondata }: { jsondata: APIResponse }) => {
+const GameGrid = ({ jsondata }: { jsondata: APIResponse }) => {
   return (
     <div className="flex align-center justify-center my-5 mx-0 2xl:mx-10">
       {/* TAMANHO DA TELA  -  EXTRA LARGE */}
@@ -74,4 +74,4 @@ const NewGameGrid = ({ jsondata }: { jsondata: APIResponse }) => {
   );
 };
 
-export default NewGameGrid;
+export default GameGrid;

@@ -1,7 +1,7 @@
 //CSS
 import "../../../styles/globals.css";
 import "../../../../public/fonts/fonts.css";
-
+import banners from "../../../components/Banners/banners.module.scss";
 //Modulos
 import { useEffect, useState } from "react";
 import {
@@ -9,12 +9,10 @@ import {
   getStaticProps as customGetStaticProps,
 } from "../../../components/apis";
 import { useRouter } from "next/router";
-
 //interfaces
 import { GameResponse } from "../../../components/Interfaces/GamePrice";
 import { GameDetails } from "../../../components/Interfaces/SteamInfos";
 import { GridResponse } from "../../../components/Interfaces/SteamGRID";
-
 //Componentes
 import {
   Navbar,
@@ -25,8 +23,8 @@ import {
   Official,
   Keysellers,
   Infos,
-} from "./imports";
-import Images from "@/components/Cards/GameInfos/Images";
+  Images,
+} from "./index";
 
 //The getStaticPaths - getStaticProps are on apis.tsx
 export const getStaticPaths = customGetStaticPaths;
@@ -70,17 +68,19 @@ export default function Index({
         <div>
           <Navbar />
           <Banner data={jsondata} hero={gridimgs} />
-          <div>
+          <div className={`${banners.gradientBanner} mt-32`}>
             <Cover data={jsondata} />
           </div>
-          <div className="bg-blackthree" style={{ zIndex: "10" }}>
+          <div className="bg-blacktwo">
             {steamdata ? (
-              <div className="p-5">
+              <div className="px-8 xl:px-10 pb-5 border-b-2 border-blackbord">
                 <Images data={steamdata} appid={appid} />
               </div>
             ) : (
               ""
             )}
+          </div>
+          <div className="bg-blackthree" style={{ zIndex: "10" }}>
             <div className="py-10 flex flex-col md:flex-row px-5 xl:px-16 ">
               <div className="flex-auto md:w-2/5 lg:w-1/3 w-full">
                 <Infos
@@ -91,7 +91,7 @@ export default function Index({
                 />
               </div>
 
-              <div className="divider md:divider-horizontal md:px-5"></div>
+              <div className="divider before:bg-blackbord after:bg-blackbord md:divider-horizontal md:px-5 pb-10 md:pb-0"></div>
 
               <div className="flex-auto flex-col w-full">
                 <div className="grid grid-row">

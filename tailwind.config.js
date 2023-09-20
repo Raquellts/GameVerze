@@ -14,6 +14,7 @@ module.exports = {
       black: "#141414",
       blacktwo: "#0F0F0F",
       blackthree: "#0C0C0C",
+      blackbord: "#050505",
     },
 
     extend: {

@@ -6,3 +6,4 @@ export { default as Marketplaces } from "../../../components/Cards/GamePrices/Pr
 export { default as Official } from "../../../components/Cards/GamePrices/Pricecard/Shop/Official";
 export { default as Keysellers } from "../../../components/Cards/GamePrices/Pricecard/Shop/Keysellers";
 export { default as Infos } from "../../../components/Cards/GameInfos/Infos";
+export { default as Images } from "../../../components/Cards/GameInfos/Images";

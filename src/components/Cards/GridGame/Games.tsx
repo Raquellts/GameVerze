@@ -1,5 +1,4 @@
 //CSS
-import Image from "next/image";
 import cards from "../cards.module.scss";
 //Interfaces
 import { GameDeal } from "../../Interfaces/GameList";
@@ -9,6 +8,12 @@ type propsPrice = {
 };
 
 const Games = ({ data }: propsPrice) => {
+  const priceMatch = data?.text?.match(/Prices start at ([^\(]+)/i);
+  const price = priceMatch?.[1] || "";
+  const discountMatch = data?.text?.match(/\(up to ([^%]+)% off\)/i);
+  const discount = discountMatch?.[1] || "";
+  const percentage = `(${discount}% off)`.replace("(% off)", "");
+
   return (
     <div className={`${cards.grayscale}`}>
       {/* ABSOLUTE - GRADIENT */}
@@ -21,6 +26,12 @@ const Games = ({ data }: propsPrice) => {
             alt=""
             className={`${cards.card} ${cards.borderCard}`}
           />
+
+          {/* ABSOLUTE - GAME ACTUAL PRICE */}
+          <h2 className={`${cards.cardDiscount} ${cards.absoluteCard}`}>
+            <p>{price || ""}</p>
+            <p>{percentage || ""}</p>
+          </h2>
 
           {/* ABSOLUTE - GAME NAME ON CARD */}
           <h2 className={`${cards.cardTXT} ${cards.absoluteCard}`}>
