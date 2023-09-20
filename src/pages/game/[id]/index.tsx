@@ -3,7 +3,6 @@ import "../../../styles/globals.css";
 import "../../../../public/fonts/fonts.css";
 import banners from "../../../components/Banners/banners.module.scss";
 //Modulos
-import React from "react";
 import { useEffect, useState } from "react";
 import {
   getStaticPaths as customGetStaticPaths,
@@ -15,17 +14,15 @@ import { GameResponse } from "../../../components/Interfaces/GamePrice";
 import { GameDetails } from "../../../components/Interfaces/SteamInfos";
 import { GridResponse } from "../../../components/Interfaces/SteamGRID";
 //Componentes
-import {
-  Navbar,
-  Footer,
-  Banner,
-  Cover,
-  Marketplaces,
-  Official,
-  Keysellers,
-  Infos,
-  Images,
-} from "./index";
+import Navbar from "../../../components/Navs/Navbar";
+import Footer from "../../../components/Navs/Footer";
+import Banner from "../../../components/Banners/Banner";
+import Cover from "../../../components/Cards/GameInfos/Cover";
+import Marketplaces from "../../../components/Cards/GamePrices/Pricecard/Shop/Marktplaces";
+import Official from "../../../components/Cards/GamePrices/Pricecard/Shop/Official";
+import Keysellers from "../../../components/Cards/GamePrices/Pricecard/Shop/Keysellers";
+import Infos from "../../../components/Cards/GameInfos/Infos";
+import Images from "../../../components/Cards/GameInfos/Images";
 
 //The getStaticPaths - getStaticProps are on apis.tsx
 export const getStaticPaths = customGetStaticPaths;
