@@ -6,7 +6,7 @@ import { APIResponse } from "../components/Interfaces/GameList";
 //Componentes
 import Navbar from "../components/Navs/Navbar";
 import Footer from "../components/Navs/Footer";
-import FilteredGrid from "@/components/Cards/GridGame/Maps/FilteredGrid";
+import FilteredGrid from "@/components/Cards/GamesCompact/Maps/FilteredGrid";
 import axios, { AxiosResponse } from "axios";
 
 export default function filter({ arr }: { arr: APIResponse }) {

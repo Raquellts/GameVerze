@@ -1,6 +1,6 @@
 import React from "react";
 //CSS
-import cards from "../../Cards/cards.module.scss";
+import info_style from "./styles/infos.module.scss";
 //Interfaces
 import { GameDetails } from "../../Interfaces/SteamInfos";
 import { GameResponse } from "../../Interfaces/GamePrice";
@@ -26,7 +26,7 @@ const Infos = ({ data, appid, infos, logo }: InfosProps) => {
   return (
     <>
       <div
-        className={`${cards.infoCard} flex flex-col align-center justify-center`}
+        className={`${info_style.card} flex flex-col align-center justify-center`}
       >
         {logo && logo.data && logo.data.length > 0 ? (
           <div className="flex align-center justify-center mb-10">
@@ -40,32 +40,32 @@ const Infos = ({ data, appid, infos, logo }: InfosProps) => {
               width={300}
               height={300}
               layout="fixed"
-              className={cards.logoAspect}
+              className={info_style.logo}
             />
           </div>
         ) : (
           <p
-            className={`${cards.infoHeader} flex align-center justify-center -mt-0`}
+            className={`${info_style.header} flex align-center justify-center -mt-0`}
           >
             {(infos && infos.info.name) || ""}
           </p>
         )}
 
         <HistoryPrices data={infos} />
-        <p className={cards.infoImportant}>
+        <p className={info_style.important}>
           release:&nbsp;
-          <span className={cards.infoDescription}>
+          <span className={info_style.description}>
             {convertUnixToDate(infos && infos.info.release) || ""}
           </span>
         </p>
         {/*infos steamAPI*/}
-        <p className={cards.infoImportant}>
+        <p className={info_style.important}>
           Description:&nbsp;
-          <span className={cards.infoDescription}>
+          <span className={info_style.description}>
             {(data && data[appid]?.data?.short_description) || ""}
           </span>
         </p>
-        <p className={cards.infoImportant}>
+        <p className={info_style.important}>
           Genres:&nbsp;
           {data &&
           data[appid]?.data?.genres &&
@@ -73,52 +73,52 @@ const Infos = ({ data, appid, infos, logo }: InfosProps) => {
             data[appid]?.data?.genres.map((genre) => (
               <span
                 key={genre.id}
-                className={`${cards.infoDescription} flex flex-col`}
+                className={`${info_style.description} flex flex-col`}
               >
                 {genre.description},&nbsp;
               </span>
             ))
           ) : (
-            <span className={cards.infoDescription}>any genre found</span>
+            <span className={info_style.description}>any genre found</span>
           )}
         </p>
-        <p className={cards.infoImportant}>
+        <p className={info_style.important}>
           Developers:&nbsp;
           {data &&
           data[appid]?.data?.developers &&
           data[appid]?.data?.developers.length > 0 ? (
             data[appid]?.data?.developers.map((developer) => (
-              <span key={developer} className={cards.infoDescription}>
+              <span key={developer} className={info_style.description}>
                 {developer}
               </span>
             ))
           ) : (
-            <span className={cards.infoDescription}>any Developers found</span>
+            <span className={info_style.description}>any Developers found</span>
           )}
         </p>
-        <p className={cards.infoImportant}>
+        <p className={info_style.important}>
           Publishers:&nbsp;
           {data && data[appid]?.data?.publishers ? (
             data[appid]?.data?.publishers.map((publisher, index) => (
-              <span key={index} className={cards.infoDescription}>
+              <span key={index} className={info_style.description}>
                 {publisher},&nbsp;
               </span>
             ))
           ) : (
-            <span className={cards.infoDescription}>any Publishers found</span>
+            <span className={info_style.description}>any Publishers found</span>
           )}
         </p>
         <Metacritic data={data} appid={appid} />
-        <p className={cards.infoImportant}>
+        <p className={info_style.important}>
           site:&nbsp;
-          <span className={cards.infoDescription}>
+          <span className={info_style.description}>
             {(data && data[appid]?.data?.website) || ""}
           </span>
         </p>
-        <p className={cards.infoImportant}>
+        <p className={info_style.important}>
           Languages:&nbsp;
           <span
-            className={`${cards.infoDescription} flex flex-col`}
+            className={`${info_style.description} flex flex-col`}
             dangerouslySetInnerHTML={
               data && {
                 __html: data[appid]?.data?.supported_languages || "",

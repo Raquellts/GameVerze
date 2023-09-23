@@ -1,7 +1,7 @@
 //Modulos
 import Image from "next/image";
 //CSS
-import cards from "../../Cards/cards.module.scss";
+import prices from "./Prices.module.scss";
 //Interfaces
 import { PriceListItem } from "../../Interfaces/GamePrice";
 import GameVersion from "../GamePrices/Pricecard/GameVersion";
@@ -22,9 +22,9 @@ const Prices = ({
   };
 
   return (
-    <div className={`${cards.bgpriceCard} ${cards.textalign} `}>
+    <div className={`${prices.background} ${prices.text_align} `}>
       <div
-        className={`${cards.pricecard} ${cards.borderCard} bg-black grid grid-cols-7 place-items-center`}
+        className={`${prices.card} ${prices.border} bg-black grid grid-cols-7 place-items-center`}
       >
         {data ? (
           <>
@@ -45,14 +45,14 @@ const Prices = ({
             {/* Preço */}
             <GamePrice data={data} currency={currency} />
 
-            <div className={`${cards.shopbutton} center`}>
+            <div className={`${prices.button_shop} center`}>
               <button
-                className={cards.textbutton}
+                className={prices.button_text}
                 style={{
                   letterSpacing: "1.5px",
                 }}
               >
-                shop<p className={cards.textarrow}>{"______ >"}</p>
+                shop<p className={prices.button_arrow}>{"______ >"}</p>
               </button>
             </div>
           </>

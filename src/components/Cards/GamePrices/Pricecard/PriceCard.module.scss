@@ -1,0 +1,46 @@
+//import SASS variables
+
+@import "../../../../styles/variables";
+
+//text prices style
+
+.text_align {
+  text-indent: 0;
+  text-align: start;
+}
+
+.header {
+  text-align: start;
+  font-family: $font-bebas;
+  letter-spacing: 1.5px;
+  width: 100%;
+  font-size: $md-font;
+}
+
+.subtitle {
+  margin: 2px 0px;
+  text-align: start;
+  font-family: $font-bebas;
+  letter-spacing: 1.5px;
+  opacity: 50%;
+  width: 100%;
+  font-size: $sm-font;
+}
+
+.value {
+  text-align: center;
+  font-family: $font-bebas;
+  letter-spacing: 1.5px;
+  width: 100%;
+  font-size: $lg-font;
+}
+
+.percent {
+  color: $color-primary;
+  margin: -3.5px 0px;
+  text-align: end;
+  font-family: $font-bebas;
+  letter-spacing: 1.5px;
+  width: 100%;
+  font-size: $sm-font;
+}

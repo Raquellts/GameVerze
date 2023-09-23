@@ -2,7 +2,7 @@
 import { APIResponse } from "../../../Interfaces/GameList";
 import buttons from "../../../../styles/buttons.module.scss";
 import Link from "next/link";
-import Games from "../Games";
+import Games from "../GamesCard";
 
 const AllGames = ({ jsondata }: { jsondata: APIResponse }) => {
   const pages = [];

@@ -50,7 +50,7 @@ export const getStaticProps = async ({ params }: any) => {
 };
 
 const Index = ({ arr }: { arr: APIResponse }) => {
-  const data = arr?.results; // Add the null-check operator '?'
+  const data = arr?.results;
   return (
     <>
       <div className="pt-20 bg-black">

@@ -3,6 +3,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { NEXARDA_API_URL, STEAM_API_URL } from "../components/urls";
 import { GameResponse } from "../components/Interfaces/GamePrice";
 import { APIResponse } from "../components/Interfaces/GameList";
+
 require("dotenv").config();
 
 const TOKEN = process.env.TOKEN;

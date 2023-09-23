@@ -1,6 +1,6 @@
 import React from "react";
 //CSS
-import cards from "../../../Cards/cards.module.scss";
+import price_card from "./PriceCard.module.scss";
 //Interfaces
 import { PriceListItem } from "../../../Interfaces/GamePrice";
 import Cupom from "@/components/Modals/cupom";
@@ -26,14 +26,16 @@ const GamePrice = ({
       {data ? (
         <>
           <div className="grid grid-row-2 mr-5 md:mr-0">
-            <p className={`${cards.pricevalue}`}>
+            <p className={`${price_card.value}`}>
               {currencySymbol}
 
               {data.price === 0 ? "Free" : data.price.toFixed(2) || ""}
             </p>
-            <div className={`${cards.percentDiv} flex flex-row`}>
+
+            {/* ${cards.percentDiv} */}
+            <div className={`flex flex-row`}>
               {data.discount > 0 && (
-                <p className={`${cards.percent}`}>
+                <p className={`${price_card.percent}`}>
                   {data.discount.toString() + "%" || ""}
                 </p>
               )}

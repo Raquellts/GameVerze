@@ -1,6 +1,6 @@
 import React from "react";
 //CSS
-import cards from "../../../Cards/cards.module.scss";
+import info_all from "./InfoAll.module.scss";
 //Interfaces
 import { GameDetails } from "../../../Interfaces/SteamInfos";
 import Link from "next/link";
@@ -25,7 +25,7 @@ const Metacritic = ({ data, appid }: InfosProps) => {
   }
   return (
     <>
-      <p className={cards.infoImportant}>
+      <p className={info_all.important}>
         Metacritic:&nbsp;
         <span
           style={{
@@ -37,12 +37,12 @@ const Metacritic = ({ data, appid }: InfosProps) => {
         {data && data[appid]?.data?.metacritic?.url ? (
           <Link
             href={data[appid]?.data?.metacritic.url}
-            className={cards.infoDescription}
+            className={info_all.description}
           >
             See More
           </Link>
         ) : (
-          <span className={cards.infoDescription}>Not found</span>
+          <span className={info_all.description}>Not found</span>
         )}
       </p>
     </>

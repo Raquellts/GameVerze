@@ -1,0 +1,18 @@
+//import SASS variables
+
+@import "../../../../styles/variables";
+
+.card {
+  padding: 0px 5px;
+  margin: 0px;
+  display: block;
+  max-width: 500px;
+  max-height: 300px;
+  width: auto;
+  height: auto;
+}
+
+.border {
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+}

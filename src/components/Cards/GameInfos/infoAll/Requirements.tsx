@@ -1,6 +1,6 @@
 /*import React from "react";
 //CSS
-import cards from "../../../Cards/cards.module.scss";
+import info_all from "./InfoAll.module.scss";
 //Interfaces
 import { GameDetails } from "../../../Interfaces/SteamInfos";
 import Link from "next/link";
@@ -32,13 +32,13 @@ const Requirements = ({ data, appid }: InfosProps) => {
       <>
         {minimum && (
           <span
-            className={cards.infoDescription}
+            className={info_all.description}
             dangerouslySetInnerHTML={{ __html: minimum }}
           ></span>
         )}
         {recommended && (
           <span
-            className={cards.infoDescription}
+            className={info_all.description}
             dangerouslySetInnerHTML={{ __html: recommended }}
           ></span>
         )}
@@ -47,8 +47,8 @@ const Requirements = ({ data, appid }: InfosProps) => {
   };
   return (
     <>
-      <p className={`${cards.infoImportant} divider`}>Requirements</p>
-      <span className={cards.infoDescription}>
+      <p className={`${info_all.important} divider`}>Requirements</p>
+      <span className={info_all.description}>
         <div>Pc</div>
         <span className={`flex flex-row`}>
           <Requirements

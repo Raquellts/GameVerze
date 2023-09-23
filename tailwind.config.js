@@ -19,8 +19,14 @@ module.exports = {
 
     extend: {
       spacing: {
+        "1px": "0.5px",
+        "60px": "60px",
         "75px": "75px",
+        "110px": "110px",
+        "120px": "120px",
       },
+
+      display: ["group-hover"],
 
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -32,5 +38,6 @@ module.exports = {
   plugins: [require("daisyui")],
   daisyui: {
     themes: ["luxury"],
+    logs: false,
   },
 };

@@ -1,9 +1,10 @@
-//Interfaces
+// Interfaces
 import { GameDeal } from "../../../Interfaces/GameList";
 import Link from "next/link";
-import Games from "../Games";
+import Games from "../../GridGame/GamesCard";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Compact from "../GamesCompact";
 
 const FilteredGrid = () => {
   const [filteredgames, setfilteredgames] = useState<GameDeal[] | null>(null);
@@ -41,17 +42,17 @@ const FilteredGrid = () => {
       </form>
 
       {/* TAMANHO DA TELA  -  EXTRA LARGE */}
-      <div className="pt-20 grid 2xl:grid-cols-7 lg:grid-cols-5 ld:grid-cols-4 md:grid-cols-3 grid-cols-2">
-        {Array.isArray(filteredgames) ? (
-          filteredgames.map((data, index) => (
+      {Array.isArray(filteredgames) ? (
+        filteredgames.map((data, index) => (
+          <div className="grid lg:grid-cols-1">
             <Link key={index} href={`/game/${data.game_info.id || "404"}`}>
-              <Games data={data} />
+              <Compact data={data} />
             </Link>
-          ))
-        ) : (
-          <p>Loading...</p>
-        )}
-      </div>
+          </div>
+        ))
+      ) : (
+        <p>Loading...</p>
+      )}
     </div>
   );
 };

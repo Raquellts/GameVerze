@@ -10,7 +10,7 @@ import Navbar from "../components/Navs/Navbar";
 import Footer from "../components/Navs/Footer";
 import Header from "../components/Banners/Header";
 import GameGrid from "../components/Cards/GridGame/Maps/GameGrid";
-import GamesCompact from "@/components/Cards/GamesCompact/GamesCompact";
+import CompactGrid from "@/components/Cards/GamesCompact/Maps/CompactGrid";
 
 // Versão correta
 
@@ -33,7 +33,7 @@ export default function index({ arr }: { arr: APIResponse }) {
         <div className="flex align-center justify-center mx-0 md:mx-10">
           <GameGrid jsondata={arr} />
         </div>
-        <GamesCompact />
+        <CompactGrid jsondata={arr} />
         <Footer />
       </div>
     </>

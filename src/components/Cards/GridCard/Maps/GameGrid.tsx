@@ -1,7 +1,7 @@
 //Interfaces
 import { APIResponse } from "../../../Interfaces/GameList";
 import Link from "next/link";
-import Games from "../Games";
+import Games from "../GamesCard";
 
 const GameGrid = ({ jsondata }: { jsondata: APIResponse }) => {
   return (

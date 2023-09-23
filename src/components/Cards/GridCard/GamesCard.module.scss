@@ -1,0 +1,106 @@
+//import SASS variables
+
+@import "../../../styles/variables";
+
+//Gradient on top and Grayscale on IMG
+
+.grayscale {
+  filter: grayscale(0.8);
+  transition: transform 0.1s ease-in;
+}
+
+.grayscale:hover {
+  filter: grayscale(0);
+  transform: scale(1.01);
+  transition: transform 0.1s ease-in;
+}
+
+.grayscale:hover .gradient {
+  transform: scale(1.01);
+  transition: transform 0.1s ease-in;
+}
+
+.gradient {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0%;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../../../../public/covers/graddarker.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 1;
+  border-radius: 18px;
+}
+
+//Card Styles
+
+.card {
+  margin: 20px;
+  min-width: 160px;
+  min-height: 230px;
+  max-width: 180px;
+  max-height: 250px;
+  width: 16vw;
+  height: 22vw;
+  position: relative;
+  text-align: center;
+}
+
+.absolute_card {
+  position: absolute;
+  min-width: 160px;
+  min-height: 130px;
+  max-width: 180px;
+  max-height: 150px;
+  width: 16vw;
+  height: 12vw;
+  margin-top: 102px;
+  margin-left: 20px;
+}
+
+.border {
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+}
+
+//texts on gamesCard
+
+.discount {
+  text-align: right;
+  top: 0;
+  margin-top: 5px;
+  margin-left: 2.3vw;
+  font-family: $font-bebas;
+  letter-spacing: 1.5px;
+  font-size: $md-font;
+  z-index: 2;
+}
+
+.price {
+  font-family: $font-bebas;
+  letter-spacing: 1.5px;
+  font-size: $md-font;
+  border-radius: 0px 0px 0px 10px;
+}
+
+.percent {
+  color: $color-primary;
+  margin: -3.5px 0px;
+  text-align: end;
+  font-family: $font-bebas;
+  letter-spacing: 1.5px;
+  width: 100%;
+  font-size: $sm-font;
+}
+
+.title {
+  text-align: center;
+  margin-top: -45px;
+  margin-left: 20px;
+  font-family: $font-bebas;
+  letter-spacing: 1.5px;
+  font-size: $md-font;
+  z-index: 2;
+}

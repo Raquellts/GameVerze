@@ -22,7 +22,7 @@ export default function Navbar() {
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a className={navs.linkTXT} href="/">
+            <a className={`${navs.linkTXT} borderless`} href="/">
               Home
             </a>
           </li>

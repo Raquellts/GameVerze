@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import buttons from "../../../styles/buttons.module.scss";
-import cards from "../../Cards/cards.module.scss";
+import images_style from "./styles/Images.module.scss";
 import { GameDetails, Screenshot } from "../../Interfaces/SteamInfos";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -63,13 +63,13 @@ const Images = ({ data, appid }: PropsGame) => {
                 return (
                   <button
                     onClick={() => openModal(image)}
-                    className={`${cards.cardImages}`}
+                    className={`${images_style.card}`}
                   >
                     <img
                       key={index}
                       src={image.path_thumbnail || ""}
                       alt=""
-                      className={`${cards.borderCard}`}
+                      className={`${images_style.border}`}
                     />
                   </button>
                 );
@@ -86,7 +86,7 @@ const Images = ({ data, appid }: PropsGame) => {
               key={selectedImage.id}
               src={selectedImage.path_full || ""}
               alt=""
-              className={`${cards.borderCard}`}
+              className={`${images_style.border}`}
             />
             <form
               method="dialog"

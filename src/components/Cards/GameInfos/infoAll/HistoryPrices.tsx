@@ -1,6 +1,6 @@
 import React from "react";
 //CSS
-import cards from "../../cards.module.scss";
+import info_all from "./InfoAll.module.scss";
 //Interfaces
 import { GameResponse } from "../../../Interfaces/GamePrice";
 
@@ -26,10 +26,10 @@ const HistoryPrices = ({ data }: { data: GameResponse }) => {
     <>
       {data ? (
         <div>
-          <p className={`${cards.infoImportant} text-base`}>
+          <p className={`${info_all.important} text-base`}>
             {/* Maior > preço registrado */}
             highest price:&nbsp;
-            <span className={cards.infoDescription}>
+            <span className={info_all.description}>
               {currencySymbol}
               {(data.prices.highest < 1000 && data.prices.highest.toFixed(2)) ||
                 ""}
@@ -37,10 +37,10 @@ const HistoryPrices = ({ data }: { data: GameResponse }) => {
             <br />
           </p>
 
-          <p className={`${cards.infoImportant} text-base`}>
+          <p className={`${info_all.important} text-base`}>
             {/* Menor < preço registrado */}
             lowest price:&nbsp;
-            <span className={cards.infoDescription}>
+            <span className={info_all.description}>
               {currencySymbol}
               {data.prices.lowest.toFixed(2) || ""}
             </span>

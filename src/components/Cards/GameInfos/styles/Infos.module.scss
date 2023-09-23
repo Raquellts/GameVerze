@@ -1,0 +1,50 @@
+//import SASS variables
+
+@import "../../../../styles/variables";
+
+//card and logo styles
+
+.card {
+  width: 100%;
+  height: auto;
+}
+
+.logo {
+  margin-bottom: 20px;
+  display: block;
+  max-width: 200px;
+  max-height: auto;
+  width: auto;
+  height: auto;
+}
+
+// text infos styles
+
+.header {
+  color: $color-primary;
+  text-align: start;
+  font-family: $font-bebas;
+  font-size: $lg-font;
+  margin-bottom: 30px;
+  font-style: normal;
+  line-height: normal;
+  font-weight: 400;
+  letter-spacing: 1.384px;
+}
+
+.important {
+  color: #ffffff !important;
+  font-style: normal !important;
+  line-height: normal !important;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  font-family: $font-bebas;
+}
+
+.description {
+  color: #ffffff80 !important;
+  font-style: normal !important;
+  line-height: normal !important;
+  letter-spacing: 1px;
+  font-family: $font-bebas;
+}

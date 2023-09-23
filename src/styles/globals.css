@@ -21,6 +21,8 @@ font-family: 'Inter', sans-serif (100 a 800);
   background-color: 141414;
 }
 
+/* ------------------------ positions global --------------------------- */
+
 .center {
   width: 100%;
   display: flex;
@@ -45,6 +47,12 @@ font-family: 'Inter', sans-serif (100 a 800);
 
 /* ---------------------------- animations global --------------------------- */
 
+/*
+ * ----------------------------------------
+ * animation text-focus-in
+ * ----------------------------------------
+ */
+
 .focus-in {
   -webkit-animation: text-focus-in 0.8s ease-in-out alternate both;
   animation: text-focus-in 0.8s ease-in-out alternate both;
@@ -54,12 +62,6 @@ font-family: 'Inter', sans-serif (100 a 800);
   -webkit-animation: text-focus-in 0.8s 0.5s ease-in-out alternate both;
   animation: text-focus-in 0.8s 0.5s ease-in-out alternate both;
 }
-
-/*
- * ----------------------------------------
- * animation text-focus-in
- * ----------------------------------------
- */
 
 @-webkit-keyframes text-focus-in {
   0% {
@@ -82,6 +84,41 @@ font-family: 'Inter', sans-serif (100 a 800);
   100% {
     -webkit-filter: blur(0px);
     filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+/*
+ * ----------------------------------------
+ * animation slider button
+ * ----------------------------------------
+ */
+.slide-bottom {
+  -webkit-animation: slide-bottom 0.5s alternate both;
+  animation: slide-bottom 0.5s alternate both;
+}
+
+@-webkit-keyframes slide-bottom {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px);
+    opacity: 1;
+  }
+}
+@keyframes slide-bottom {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px);
     opacity: 1;
   }
 }

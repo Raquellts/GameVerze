@@ -1,7 +1,7 @@
 import Prices from "../../Prices";
 import MoreButton from "./ButtonMore";
 //CSS
-import cards from "../../../cards.module.scss";
+import shop from "./Shop.module.scss";
 //Interfaces
 import { GameResponse } from "../../../../Interfaces/GamePrice";
 import { useState } from "react";
@@ -22,7 +22,11 @@ const Official = ({ jsondata }: { jsondata: GameResponse }) => {
   return (
     <div>
       {filteredOfficial.length > 0 && (
-        <p className={`${cards.infoHeader}`}>Official Stores</p>
+        <p
+          className={`${shop.header} text-center mt-5 md:mt-0 md:text-left md:ml-1`}
+        >
+          Official Stores
+        </p>
       )}
       {jsondata ? (
         filteredOfficial

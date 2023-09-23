@@ -1,5 +1,5 @@
 //CSS
-import cards from "../../Cards/cards.module.scss";
+import cover_style from "./styles/Cover.module.scss";
 //Interfaces
 import { GameResponse } from "../../Interfaces/GamePrice";
 
@@ -12,11 +12,11 @@ const Cover = ({ data }: propsGame) => {
     <>
       <div className="flex justify-center -mt-5 md:block md:mt-5">
         <div className=" xl:ml-75px pb-8">
-          <div className={`${cards.absoluteCover}`} />
+          <div className={`${cover_style.absoluteCover}`} />
           <img
             src={(data && data.info.cover) || ""}
             alt=""
-            className={`${cards.cardCover} ${cards.borderCard}`}
+            className={`${cover_style.cardCover} ${cover_style.borderCard}`}
           />
         </div>
       </div>

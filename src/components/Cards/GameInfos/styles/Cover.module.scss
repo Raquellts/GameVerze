@@ -1,0 +1,28 @@
+//import SASS variables
+
+@import "../../../../styles/variables";
+
+.absoluteCover {
+  position: absolute;
+  min-width: 250px;
+  min-height: 350px;
+  margin: 20px;
+  width: 18vw;
+  height: 24vw;
+  text-align: center;
+}
+
+.cardCover {
+  min-width: 250px;
+  min-height: 350px;
+  width: 18vw;
+  height: 24vw;
+  margin: 20px;
+  z-index: 1;
+  text-align: center;
+}
+
+.borderCard {
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+}
