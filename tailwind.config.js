@@ -24,6 +24,7 @@ module.exports = {
         "75px": "75px",
         "110px": "110px",
         "120px": "120px",
+        "100vw": "100vw",
       },
 
       display: ["group-hover"],

@@ -4,7 +4,7 @@ import "../../../../public/fonts/fonts.css";
 import axios, { AxiosResponse } from "axios";
 import Navbar from "../../../components/Navs/Navbar";
 import Footer from "../../../components/Navs/Footer";
-import AllGames from "../../../components/Cards/GridGame/Maps/AllGames";
+import AllGames from "../../../components/Cards/GridCard/Maps/AllGames";
 import { APIResponse } from "../../../components/Interfaces/GameList";
 import { GetStaticPaths } from "next";
 
@@ -53,7 +53,7 @@ const Index = ({ arr }: { arr: APIResponse }) => {
   const data = arr?.results;
   return (
     <>
-      <div className="pt-20 bg-black">
+      <div className="bg-black">
         <Navbar />
         <div className="flex align-center justify-center mx-0 md:mx-10">
           <AllGames jsondata={arr} />

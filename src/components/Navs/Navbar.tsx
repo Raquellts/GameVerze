@@ -2,6 +2,7 @@
 import Image from "next/image";
 //styles
 import navs from "../Navs/navs.module.scss";
+import Link from "next/link";
 
 export default function Navbar() {
   return (
@@ -15,24 +16,24 @@ export default function Navbar() {
           width={50}
           height={50}
           alt="..."
-          className="ml-5 hidden md:block"
+          className="ml-5"
         ></Image>
       </a>
 
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a className={`${navs.linkTXT} borderless`} href="/">
+            <Link className={`${navs.linkTXT} borderless`} href="/">
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a className={navs.linkTXT} href="/filter">
-              Filters
-            </a>
+            <Link className={navs.linkTXT} href="/page/1">
+              Games
+            </Link>
           </li>
-          <li className="mr-5">
-            <a className={navs.linkTXT} href="/filter">
+          <li className="ml-5">
+            <Link className={navs.linkTXT} href="/filter">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 x="0px"
@@ -62,7 +63,7 @@ export default function Navbar() {
                   </g>
                 </g>
               </svg>
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

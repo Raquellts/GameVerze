@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import "../../public/fonts/fonts.css";
 import type { Metadata } from "next";
+import Navbar from "../components/Navs/Navbar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,6 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="luxury">
       {/* themes: dark, winter */}
+
       <body className="bg-black">{children}</body>
     </html>
   );

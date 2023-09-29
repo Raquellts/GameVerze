@@ -9,7 +9,7 @@ import { APIResponse } from "../components/Interfaces/GameList";
 import Navbar from "../components/Navs/Navbar";
 import Footer from "../components/Navs/Footer";
 import Header from "../components/Banners/Header";
-import GameGrid from "../components/Cards/GridGame/Maps/GameGrid";
+import GameGrid from "../components/Cards/GridCard/Maps/GameGrid";
 import CompactGrid from "@/components/Cards/GamesCompact/Maps/CompactGrid";
 
 // Versão correta
@@ -30,10 +30,14 @@ export default function index({ arr }: { arr: APIResponse }) {
         <Navbar />
         <Header />
 
-        <div className="flex align-center justify-center mx-0 md:mx-10">
+        <div className="flex flex-col align-center justify-center">
           <GameGrid jsondata={arr} />
+          <div className="divider py-10 mx-8 md:mx-10 lg:mx-28 before:bg-base-300 after:bg-base-300 ">
+            see more
+          </div>
+          <CompactGrid jsondata={arr} />
         </div>
-        <CompactGrid jsondata={arr} />
+
         <Footer />
       </div>
     </>
