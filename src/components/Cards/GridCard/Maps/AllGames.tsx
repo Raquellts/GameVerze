@@ -1,94 +1,75 @@
 //Interfaces
-import { APIResponse } from "../../../Interfaces/GameList";
+import React, { useEffect, useState } from "react";
 import buttons from "../../../../styles/buttons.module.scss";
 import Link from "next/link";
-import Games from "../GamesCard";
+import { APIResponse } from "../../../Interfaces/GameList";
+import GridAllGames from "./GridAllGames";
 
 const AllGames = ({ jsondata }: { jsondata: APIResponse }) => {
-  const pages = [];
+  const [currentPage, setCurrentPage] = useState(
+    typeof window !== "undefined"
+      ? Number(localStorage.getItem("currentPage")) || 1
+      : 1
+  );
 
-  for (let i = 1; i <= jsondata.results.pages; i++) {
-    pages.push(i);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("currentPage", String(currentPage));
+    }
+  }, [currentPage]);
+
+  const totalPages = jsondata.results.pages;
+  const maxButtons = 5;
+  const displayPages = [];
+
+  // Add current page and adjacent pages
+  for (
+    let i = Math.max(1, currentPage - 2);
+    i <= Math.min(currentPage + 2, totalPages);
+    i++
+  ) {
+    displayPages.push(i);
+  }
+
+  // Add ellipsis if there are more pages before or after
+  if (displayPages[0] !== 1) {
+    displayPages.unshift("...");
+  }
+  if (displayPages[displayPages.length - 1] !== totalPages) {
+    displayPages.push("...");
   }
 
   return (
     <div className="flex flex-col align-center justify-center">
       <div className="flex align-center justify-center my-5 mx-0 2xl:mx-10">
-        {/* TAMANHO DA TELA  -  EXTRA LARGE */}
-        <div className="hidden 2xl:block ">
-          <div className="pt-20 grid grid-cols-7">
-            {jsondata.results.items.map((data, index) => {
-              return (
-                <Link key={index} href={`/game/${data.game_info.id || "404"}`}>
-                  <Games data={data} />
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* TAMANHO DA TELA  -  LARGE */}
-        <div className="2xl:hidden hidden lg:block  ">
-          <div className="pt-20 grid grid-cols-5">
-            {jsondata.results.items.map((data, index) => {
-              return (
-                <Link key={index} href={`/game/${data.game_info.id || "404"}`}>
-                  <Games data={data} />
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* TAMANHO DA TELA  -  MEDIUM */}
-        <div className="lg:hidden hidden md:block  ">
-          <div className="pt-20 grid grid-cols-4">
-            {jsondata.results.items.map((data, index) => {
-              return (
-                <Link key={index} href={`/game/${data.game_info.id || "404"}`}>
-                  <Games data={data} />
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* TAMANHO DA TELA  -  SMALL */}
-        <div className="md:hidden hidden sm:block  ">
-          <div className="pt-20 grid grid-cols-3">
-            {jsondata.results.items.map((data, index) => {
-              return (
-                <Link key={index} href={`/game/${data.game_info.id || "404"}`}>
-                  <Games data={data} />
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* TAMANHO DA TELA  -  EXTRA SMALL */}
-        <div className="sm:hidden block  ">
-          <div className="pt-20 grid grid-cols-2">
-            {jsondata.results.items.map((data, index) => {
-              return (
-                <Link key={index} href={`/game/${data.game_info.id || "404"}`}>
-                  <Games data={data} />
-                </Link>
-              );
-            })}
-          </div>
-        </div>
+        <GridAllGames jsondata={jsondata} />
       </div>
 
       {/* PAGINAÇÃO */}
-      <div className="flex flex-row align-center justify-center">
-        {pages?.map((page, index) => {
-          if (page)
+      <div className="flex flex-row align-center justify-center pb-20">
+        {displayPages.map((page, index) => {
+          if (page === "...") {
             return (
-              <Link key={index} href={`/page/${page}`}>
-                <button className={`${buttons.primaryButton}`}>{page}</button>
+              <div key={index}>
+                <span key={index} className="ellipsis">
+                  &nbsp;...&nbsp;
+                </span>
+              </div>
+            );
+          } else {
+            return (
+              <Link key={index} href={`/page/${page}`} className="px-1">
+                <button
+                  className={`${buttons.primaryButton} ${
+                    currentPage === page ? buttons.active : ""
+                  }`}
+                  onClick={() => setCurrentPage(Number(page))}
+                >
+                  {page}
+                </button>
               </Link>
             );
+          }
         })}
       </div>
     </div>

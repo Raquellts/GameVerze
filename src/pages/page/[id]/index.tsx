@@ -60,7 +60,6 @@ const Index = ({ arr }: { arr: APIResponse }) => {
         </div>
         <Footer />
       </div>
-      <div className="pagination-buttons"></div>
     </>
   );
 };
